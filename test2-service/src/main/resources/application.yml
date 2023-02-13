@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: test2service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:81 #使用nginx反向代理 nacos的注册中心
+        ephemeral: false # 设置为非临时实例  如果实例宕机，不会从服务列表删除  临时实例：如果实例宕机超过一定时间，会从服务列表剔除，默认的类型
+#  cloud:
+#    nacos:
+#      server-addr: localhost:81
+#      discovery:
+#        ephemeral: false # 设置为非临时实例  如果实例宕机，不会从服务列表删除  临时实例：如果实例宕机超过一定时间，会从服务列表剔除，默认的类型
+#        cluster-name: SH # 集群名称
+#        namespace: ce493c59-df34-4fe2-a386-87664544c5cc  # 命名空间，填ID
+  test2service:
+    ribbon:
+      NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule # 负载均衡规则
